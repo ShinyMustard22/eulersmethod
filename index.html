@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+    <title>Euler's Method</title>
+</head>
+<body>
+    <header>
+        Euler's Method
+    </header>
+    <div id="input-stuff">
+        <div class="an-input">
+            <p>y' =</p> 
+            <input type="text" id="dydx">
+        </div>
+        
+        <div class="an-input">
+            <p>x<sub>0</sub> =</p>
+            <input type="text" id="x0">
+        </div>
+
+        <div class="an-input">
+            <p>y<sub>0</sub> =</p>
+            <input type="text" id="y0">
+        </div>
+
+        <div class="an-input">
+            <p>Δx =</p>
+            <input type="text" id="dx">
+        </div>
+
+        <div class="an-input">
+            <p>x<sub>n</sub> =</p>
+            <input type="text" id="xn">
+        </div>
+    </div>
+
+    <div id="answer-stuff">
+        <button id="submit">Submit</button>
+        <p id="answer">Answer: </p>
+    </div>
+</body>
+</html>

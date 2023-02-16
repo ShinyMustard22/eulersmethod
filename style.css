@@ -1,0 +1,43 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    text-align: center;
+    font-size: 2rem;
+}
+
+p {
+    margin: 0;
+}
+
+#input-stuff {
+    display: flex;
+    gap: 0.5rem;
+    margin: auto;
+    width: fit-content;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.an-input {
+    display: flex;
+    gap: 0.25rem;
+}
+
+#answer-stuff {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: auto;
+    margin-top: 1rem;
+    width: fit-content;
+}
+
+#submit {
+    align-self: center;
+    width: 120px;
+    height: 40px;
+    font-size: 1.5rem;
+}
