@@ -41,3 +41,27 @@ p {
     height: 40px;
     font-size: 1.5rem;
 }
+
+.largetable{
+    width: 75%;
+    margin-left: 12.5%;
+    /* border: 3px solid black; */
+}
+
+.fullwidth{
+    width: 100%;
+}
+
+.smallcol{
+    width: 10%;
+    border: 1px solid black;
+    text-align: center;
+    float: left;
+}
+
+.largecol{
+    width: 30%;
+    border: 1px solid black;
+    text-align: center;
+    float: left;
+}
