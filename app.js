@@ -6,7 +6,7 @@ const dx = document.getElementById('dx');
 const xn = document.getElementById('xn');
 const answer = document.getElementById('answer');
 
-// this processes the facking equation and
+// this processes the facking equation
 function calculate(x,y){
 
     let lucidair = dydx.value;
@@ -18,14 +18,75 @@ function calculate(x,y){
     let thex = x;
     let they = y;
 
-    lucidair = lucidair.replaceAll('x',thex);
-    lucidair = lucidair.replaceAll('y',they);
+    lucidair = lucidair.replaceAll('x','('+thex+')');
+    lucidair = lucidair.replaceAll('y','('+they+')');
 
     console.log('evaluating '+lucidair);
 
     lucidair = math.evaluate(lucidair);
 
     return lucidair;
+}
+
+
+// clear the res
+function clearres(){
+
+    let theres = document.getElementById('results');
+
+    theres.innerHTML = `
+        <div class="fullwidth">
+            <div class="smallcol">
+                Iteration
+            </div>
+            <div class="smallcol">
+                X
+            </div>
+            <div class="smallcol">
+                Y
+            </div>
+            <div class="largecol">
+                Dy/Dx
+            </div>
+            <div class="largecol">
+                Next Y
+            </div>
+        </div>
+    `;
+}
+
+// add a col with an iteration of the thing
+function additeration(iter, x ,y , step){
+        
+    let theres = document.getElementById('results');
+
+    // lets eval some of the things
+
+    let ddx = calculate(x,y);
+
+    let nexty = y+ddx*step;
+
+    theres.innerHTML += `
+        <div class="fullwidth">
+            <div class="smallcol" title="`+iter+`">
+                `+iter+`
+            </div>
+            <div class="smallcol" title="`+x+`">
+                `+x.toFixed(3)+`
+            </div>
+            <div class="smallcol" title="`+y+`">
+                `+y.toFixed(3)+`
+            </div>
+            <div class="largecol" title="`+ddx+`">
+                `+ddx.toFixed(3)+`
+            </div>
+            <div class="largecol" title="`+nexty+`">
+                `+nexty.toFixed(3)+`
+            </div>
+        </div>
+    `;
+
+    return nexty;
 }
 
 submit.addEventListener('click', () => {
@@ -48,7 +109,27 @@ submit.addEventListener('click', () => {
 
     let resp = calculate(evalx,evaly);
 
-    answer.innerHTML = '('+evalx+','+evaly+') with '+dydx.value+' = '+resp;
+    // answer.innerHTML = '('+evalx+','+evaly+') with '+dydx.value+' = '+resp;
 
-    console.log(processeq());
+    // console.log(processeq());
+
+    // start from x0 and then go to xn
+
+    let ttrs = x0c; // the audi
+
+    let i = 1;
+
+    let lasty = y0c;
+
+    clearres();
+
+    while (ttrs <= xnc){
+        lasty = additeration(i,ttrs,lasty,dxc);
+
+        console.log(ttrs);
+        ttrs += dxc;
+        i += 1;
+    }
 });
+
+// test things
